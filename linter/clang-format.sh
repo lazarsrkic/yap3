@@ -16,7 +16,7 @@ if ! [[ -x "$(command -v $CMD)" ]]; then
     echo "$CMD not found, you can install it with sudo apt install clang-format"
 fi
 
-pushd "${BUILD_WORKSPACE_DIRECTORY}" &>/dev/null
+pushd "${BUILD_WORKSPACE_DIRECTORY}" &>/dev/null || exit 1
 find . \
     \( -name '*.c' \
     -o -name '*.cc' \
@@ -25,4 +25,4 @@ find . \
     -o -name '*.hh' \
     -o -name '*.hpp' \) \
     -exec "${CMD}" -i '{}' \;
-popd &>/dev/null
+popd &>/dev/null || exit 1
