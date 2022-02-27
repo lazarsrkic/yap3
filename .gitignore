@@ -1,1 +1,5 @@
+# Bazel output
 bazel-*
+
+# VS code
+*.vscode
