@@ -11,9 +11,11 @@ namespace datalink {
 
 class Backend {
 public:
-    virtual ssize_t read(std::uint8_t* buf, std::size_t const len) = 0;
-    virtual ssize_t write(std::uint8_t const* buf, std::size_t const len) = 0;
-    virtual operator bool() = 0;
+    virtual ssize_t read(std::uint8_t* buf,
+                         std::size_t const len) const noexcept = 0;
+    virtual ssize_t write(std::uint8_t const* buf,
+                          std::size_t const len) const noexcept = 0;
+    virtual operator bool() const noexcept = 0;
 };
 
 }  // namespace datalink

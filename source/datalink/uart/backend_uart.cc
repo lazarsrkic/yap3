@@ -23,7 +23,7 @@ namespace yap3 {
 namespace datalink {
 
 BackendUart::BackendUart(std::string const& device,
-                         std::uint32_t const baudrate)
+                         std::uint32_t const baudrate) noexcept
     : m_serial{device, baudrate} {
     if (!m_serial) {
         spdlog::error("Failed to create Serial object!");
@@ -32,9 +32,10 @@ BackendUart::BackendUart(std::string const& device,
     spdlog::debug("Uart backend created!");
 }
 
-BackendUart::operator bool() { return m_serial; }
+BackendUart::operator bool() const noexcept { return m_serial; }
 
-ssize_t BackendUart::read(std::uint8_t* buf, std::size_t const len) {
+ssize_t BackendUart::read(std::uint8_t* buf,
+                          std::size_t const len) const noexcept {
     auto const read_len = ::read(m_serial, buf, len);
     if (read_len == -1) {
         spdlog::error("Failed to read data from serial stream! Error: ",
@@ -46,7 +47,8 @@ ssize_t BackendUart::read(std::uint8_t* buf, std::size_t const len) {
     return read_len;
 }
 
-ssize_t BackendUart::write(std::uint8_t const* buf, std::size_t const len) {
+ssize_t BackendUart::write(std::uint8_t const* buf,
+                           std::size_t const len) const noexcept {
     auto const write_len = ::write(m_serial, buf, len);
     if (write_len == -1) {
         spdlog::error("Failed to write data to serial stream! Error: ",

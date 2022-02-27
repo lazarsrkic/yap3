@@ -13,13 +13,13 @@ namespace uart {
 
 class Serial {
 public:
-    Serial(std::string const& device, std::uint32_t const baudrate);
-    ~Serial();
+    Serial(std::string const& device, std::uint32_t const baudrate) noexcept;
+    ~Serial() noexcept;
     Serial(Serial const& other) = delete;
     Serial& operator=(Serial const& other) = delete;
 
-    operator bool() const;
-    operator std::int32_t() const;
+    operator bool() const noexcept;
+    operator std::int32_t() const noexcept;
 
 private:
     std::int32_t m_fd{-1};

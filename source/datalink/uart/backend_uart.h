@@ -13,10 +13,13 @@ namespace datalink {
 
 class BackendUart : public Backend {
 public:
-    BackendUart(std::string const& device, std::uint32_t const baudrate);
-    ssize_t read(std::uint8_t* buf, std::size_t const len) override;
-    ssize_t write(std::uint8_t const* buf, std::size_t const len) override;
-    operator bool() override;
+    BackendUart(std::string const& device,
+                std::uint32_t const baudrate) noexcept;
+    ssize_t read(std::uint8_t* buf,
+                 std::size_t const len) const noexcept override;
+    ssize_t write(std::uint8_t const* buf,
+                  std::size_t const len) const noexcept override;
+    operator bool() const noexcept override;
 
 private:
     uart::Serial m_serial;

@@ -9,7 +9,8 @@ namespace yap3 {
 namespace datalink {
 namespace uart {
 
-Serial::Serial(std::string const& device, std::uint32_t const baudrate) {
+Serial::Serial(std::string const& device,
+               std::uint32_t const baudrate) noexcept {
     Baudrate bdrate{baudrate};
     if (!bdrate) {
         spdlog::error("Failed to create Baudrate object!");
@@ -49,7 +50,7 @@ Serial::Serial(std::string const& device, std::uint32_t const baudrate) {
     }
 }
 
-Serial::~Serial() {
+Serial::~Serial() noexcept {
     if (m_fd != -1) {
         if (::close(m_fd) != -1) {
             spdlog::debug("Closed uart stream!");
@@ -60,9 +61,9 @@ Serial::~Serial() {
     }
 }
 
-Serial::operator bool() const { return m_fd != -1; }
+Serial::operator bool() const noexcept { return m_fd != -1; }
 
-Serial::operator std::int32_t() const { return m_fd; }
+Serial::operator std::int32_t() const noexcept { return m_fd; }
 
 }  // namespace uart
 }  // namespace datalink
