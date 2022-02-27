@@ -31,7 +31,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Builds YAP3 target
-        run: bazel build //:yap3
+        run: bazel build //source:yap3
 
       # Runs a set of commands using the runners shell
       - name: Build and run unit tests
