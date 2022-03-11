@@ -1,2 +1,4 @@
 build --cxxopt='-std=c++17'
 build --cxxopt='-Isource'
+build --cxxopt='-O3'
+build --linkopt='-lrt'
