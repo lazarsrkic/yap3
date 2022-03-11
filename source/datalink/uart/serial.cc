@@ -61,10 +61,6 @@ Serial::~Serial() noexcept {
     }
 }
 
-Serial::operator bool() const noexcept { return m_fd != -1; }
-
-Serial::operator std::int32_t() const noexcept { return m_fd; }
-
 }  // namespace uart
 }  // namespace datalink
 }  // namespace yap3

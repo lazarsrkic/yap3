@@ -18,8 +18,8 @@ public:
     Serial(Serial const& other) = delete;
     Serial& operator=(Serial const& other) = delete;
 
-    operator bool() const noexcept;
-    operator std::int32_t() const noexcept;
+    inline operator bool() const noexcept { return m_fd != -1; }
+    inline operator std::int32_t() const noexcept { return m_fd; }
 
 private:
     std::int32_t m_fd{-1};
