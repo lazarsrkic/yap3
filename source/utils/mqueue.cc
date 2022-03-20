@@ -2,6 +2,9 @@
 
 #include <spdlog/spdlog.h>
 
+#include <iomanip>
+#include <sstream>
+
 namespace {
 const ::timespec ms_to_timespec(std::chrono::milliseconds const& timeout) {
     auto const now = std::chrono::system_clock::now();
@@ -14,6 +17,16 @@ const ::timespec ms_to_timespec(std::chrono::milliseconds const& timeout) {
                            .count();
 
     return timespec{secs, nsecs};
+}
+
+std::string log_message(std::vector<std::uint8_t> const& msg) {
+    std::stringstream stream;
+    for (auto& item : msg) {
+        stream << "0x" << std::setfill('0') << std::setw(2) << std::hex
+               << static_cast<int>(item) << ' ' << std::dec;
+    }
+
+    return stream.str();
 }
 }  // namespace
 
@@ -47,6 +60,7 @@ bool MQueue::send(std::vector<std::uint8_t> const& data) const noexcept {
     if (m_fd != -1) {
         if (::mq_send(m_fd, reinterpret_cast<const char*>(data.data()),
                       m_attr.mq_msgsize, 0) == 0) {
+            spdlog::debug("{}: sent message {}!", __func__, log_message(data));
             return true;
         } else {
             spdlog::error("Failed to send msg to mqueue! Error: {}",
@@ -65,6 +79,7 @@ bool MQueue::timed_send(
         auto const& time_point = ms_to_timespec(timeout);
         if (::mq_timedsend(m_fd, reinterpret_cast<const char*>(data.data()),
                            m_attr.mq_msgsize, 0, &time_point) == 0) {
+            spdlog::debug("{}: sent message {}!", __func__, log_message(data));
             return true;
         } else {
             spdlog::error("Failed to send msg to mqueue! Error: {}",
@@ -91,7 +106,7 @@ bool MQueue::receive(std::vector<std::uint8_t>& data) const noexcept {
         data.erase(data.begin(), data.end());
         std::copy(m_buffer.begin(), m_buffer.begin() + received_msg_size,
                   std::back_inserter(data));
-
+        spdlog::debug("{}: received message {}!", __func__, log_message(data));
         return true;
     }
     spdlog::error("{}: invalid mqueue file descriptor!", __func__);
@@ -112,11 +127,10 @@ bool MQueue::timed_receive(
                           std::strerror(errno));
             return false;
         }
-
         data.erase(data.begin(), data.end());
         std::copy(m_buffer.begin(), m_buffer.begin() + received_msg_size,
                   std::back_inserter(data));
-
+        spdlog::debug("{}: received message {}!", __func__, log_message(data));
         return true;
     }
     spdlog::error("{}: invalid mqueue file descriptor!", __func__);
