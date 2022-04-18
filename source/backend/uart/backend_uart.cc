@@ -1,4 +1,4 @@
-#include "datalink/uart/backend_uart.h"
+#include "backend/uart/backend_uart.h"
 
 #include <spdlog/spdlog.h>
 
@@ -20,7 +20,7 @@ std::string log_buffer(uint8_t const* const buf, std::size_t const len) {
 }  // namespace
 
 namespace yap3 {
-namespace datalink {
+namespace backend {
 
 BackendUart::BackendUart(std::string const& device,
                          std::uint32_t const baudrate) noexcept
@@ -59,5 +59,5 @@ ssize_t BackendUart::write(std::uint8_t const* buf,
     return write_len;
 }
 
-}  // namespace datalink
+}  // namespace backend
 }  // namespace yap3

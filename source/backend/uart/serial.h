@@ -1,5 +1,5 @@
-#ifndef SOURCE_DATALINK_UART_SERIAL_H_
-#define SOURCE_DATALINK_UART_SERIAL_H_
+#ifndef SOURCE_BACKEND_UART_SERIAL_H_
+#define SOURCE_BACKEND_UART_SERIAL_H_
 
 #include <termios.h>
 #include <unistd.h>
@@ -8,7 +8,7 @@
 #include <string>
 
 namespace yap3 {
-namespace datalink {
+namespace backend {
 namespace uart {
 
 class Serial {
@@ -27,7 +27,7 @@ private:
 };
 
 }  // namespace uart
-}  // namespace datalink
+}  // namespace backend
 }  // namespace yap3
 
-#endif  // SOURCE_DATALINK_UART_SERIAL_H_
+#endif  // SOURCE_BACKEND_UART_SERIAL_H_

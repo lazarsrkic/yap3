@@ -1,12 +1,12 @@
-#ifndef SOURCE_DATALINK_UART_BAUDRATE_H_
-#define SOURCE_DATALINK_UART_BAUDRATE_H_
+#ifndef SOURCE_BACKEND_UART_BAUDRATE_H_
+#define SOURCE_BACKEND_UART_BAUDRATE_H_
 
 #include <termios.h>
 
 #include <cstdint>
 
 namespace yap3 {
-namespace datalink {
+namespace backend {
 namespace uart {
 
 class Baudrate {
@@ -20,7 +20,7 @@ private:
 };
 
 }  // namespace uart
-}  // namespace datalink
+}  // namespace backend
 }  // namespace yap3
 
-#endif  // SOURCE_DATALINK_UART_BAUDRATE_H_
+#endif  // SOURCE_BACKEND_UART_BAUDRATE_H_

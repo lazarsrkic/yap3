@@ -1,5 +1,5 @@
-#ifndef SOURCE_DATALINK_BACKEND_H_
-#define SOURCE_DATALINK_BACKEND_H_
+#ifndef SOURCE_BACKEND_BACKEND_H_
+#define SOURCE_BACKEND_BACKEND_H_
 
 #include <sys/types.h>
 
@@ -7,7 +7,7 @@
 #include <cstdint>
 
 namespace yap3 {
-namespace datalink {
+namespace backend {
 
 class Backend {
 public:
@@ -18,7 +18,7 @@ public:
     virtual operator bool() const noexcept = 0;
 };
 
-}  // namespace datalink
+}  // namespace backend
 }  // namespace yap3
 
-#endif  // SOURCE_DATALINK_BACKEND_H_
+#endif  // SOURCE_BACKEND_BACKEND_H_

@@ -1,11 +1,11 @@
-#include "datalink/uart/baudrate.h"
+#include "backend/uart/baudrate.h"
 
 #include <spdlog/spdlog.h>
 
 #include <memory>
 
 namespace yap3 {
-namespace datalink {
+namespace backend {
 namespace uart {
 
 Baudrate::Baudrate(std::uint32_t const baudrate) {
@@ -41,5 +41,5 @@ Baudrate::operator bool() const { return m_baudrate != B0; }
 Baudrate::operator speed_t() const { return m_baudrate; }
 
 }  // namespace uart
-}  // namespace datalink
+}  // namespace backend
 }  // namespace yap3

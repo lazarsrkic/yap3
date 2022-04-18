@@ -1,12 +1,12 @@
-#include "datalink/uart/baudrate.h"
-#include "datalink/uart/serial.h"
+#include "backend/uart/baudrate.h"
+#include "backend/uart/serial.h"
 
 #include <spdlog/spdlog.h>
 
 #include <memory>
 
 namespace yap3 {
-namespace datalink {
+namespace backend {
 namespace uart {
 
 Serial::Serial(std::string const& device,
@@ -62,5 +62,5 @@ Serial::~Serial() noexcept {
 }
 
 }  // namespace uart
-}  // namespace datalink
+}  // namespace backend
 }  // namespace yap3

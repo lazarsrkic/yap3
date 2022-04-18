@@ -1,15 +1,15 @@
-#ifndef SOURCE_DATALINK_UART_BACKEND_UART_H_
-#define SOURCE_DATALINK_UART_BACKEND_UART_H_
+#ifndef SOURCE_BACKEND_UART_BACKEND_UART_H_
+#define SOURCE_BACKEND_UART_BACKEND_UART_H_
 
-#include "datalink/backend.h"
-#include "datalink/uart/serial.h"
+#include "backend/backend.h"
+#include "backend/uart/serial.h"
 
 #include <cstdint>
 #include <memory>
 #include <string>
 
 namespace yap3 {
-namespace datalink {
+namespace backend {
 
 class BackendUart : public Backend {
 public:
@@ -26,7 +26,7 @@ private:
     bool m_valid{false};
 };
 
-}  // namespace datalink
+}  // namespace backend
 }  // namespace yap3
 
-#endif  // SOURCE_DATALINK_UART_BACKEND_UART_H_
+#endif  // SOURCE_BACKEND_UART_BACKEND_UART_H_
