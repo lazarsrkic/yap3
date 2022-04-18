@@ -11,7 +11,7 @@ cc_binary(
     name = "yap3peer",
     srcs = ["yap3peer.cc"],
     deps = [
-        "//source:backend_uart",
+        "//source/backend",
         "//source:client_mqueue",
         "@spdlog"
     ],

@@ -1,4 +1,4 @@
-#include "datalink/uart/backend_uart.h"
+#include "backend/uart/backend_uart.h"
 #include "utils/mqueue.h"
 
 #include <spdlog/spdlog.h>
@@ -11,7 +11,7 @@ int main() {
     spdlog::set_level(spdlog::level::debug);
     spdlog::info("Welcome to YAP3");
 
-    yap3::datalink::BackendUart uart{"/dev/pts/5", 115200};
+    yap3::backend::BackendUart uart{"/dev/pts/5", 115200};
     if (!uart) {
         spdlog::error("Failed to create Uart backend for write");
         return -1;

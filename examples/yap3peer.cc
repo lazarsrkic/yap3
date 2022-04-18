@@ -1,4 +1,4 @@
-#include "datalink/uart/backend_uart.h"
+#include "backend/uart/backend_uart.h"
 
 #include <spdlog/spdlog.h>
 
@@ -13,7 +13,7 @@ int main() {
     spdlog::set_level(spdlog::level::debug);
     spdlog::info("Welcome to yap3peer");
 
-    yap3::datalink::BackendUart uart{"/dev/pts/4", 115200};
+    yap3::backend::BackendUart uart{"/dev/pts/4", 115200};
     if (!uart) {
         spdlog::error("Failed to create Uart backend for read");
         return -1;
