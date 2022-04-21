@@ -30,9 +30,9 @@ jobs:
           bazel-version: '5.0.0'
 
       # Runs a single command using the runners shell
-      - name: Builds YAP3 target
+      - name: Builds YAP3 targets
         run: bazel build ...
 
       # Runs a set of commands using the runners shell
       - name: Build and run unit tests
-        run: bazel test //tests/...  --test_output=streamed --cache_test_results=no
+        run: bazel test //tests/... --test_output=streamed --cache_test_results=no --runs_per_test=100
