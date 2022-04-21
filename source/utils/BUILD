@@ -8,3 +8,12 @@ cc_library(
         "@spdlog"
     ],
 )
+
+cc_library(
+    name = "ringbuffer",
+    srcs = ["ringbuffer.cc"],
+    hdrs = ["ringbuffer.h"],
+    deps = [
+        "@spdlog"
+    ],
+)

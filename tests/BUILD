@@ -1,6 +1,9 @@
 cc_test(
-  name = "hello_test",
+  name = "ringbuffer",
   size = "small",
-  srcs = ["first_test.cc"],
-  deps = ["@googletest//:gtest_main"],
+  srcs = ["ringbuffer_test.cc"],
+  deps = [
+    "//source/utils:ringbuffer",
+    "@googletest//:gtest_main",
+  ],
 )
