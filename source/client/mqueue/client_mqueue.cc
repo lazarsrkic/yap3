@@ -1,4 +1,4 @@
-#include "source/client/mqueue/client_mqueue.h"
+#include "client/mqueue/client_mqueue.h"
 
 namespace yap3 {
 namespace client {

@@ -1,6 +1,6 @@
 #ifndef SOURCE_CLIENT_MQUEUE_CLIENT_MQUEUE_H_
 #define SOURCE_CLIENT_MQUEUE_CLIENT_MQUEUE_H_
-#include "source/client/client.h"
+#include "client/client.h"
 #include "utils/mqueue.h"
 
 #include <chrono>
