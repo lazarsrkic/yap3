@@ -2,30 +2,32 @@
 #define SOURCE_LAYERS_DATALINK_H_
 
 #include "backend/backend.h"
-
-#include <sys/types.h>
+#include "layers/layer.h"
 
 #include <cstdint>
 #include <memory>
-#include <utility>
-#include <vector>
 
 namespace yap3 {
 namespace layers {
-namespace datalink {
 
-class Datalink {
+class Datalink : public Layer {
 public:
     Datalink(std::unique_ptr<yap3::backend::Backend> backend) noexcept;
-    std::pair<bool, std::vector<std::uint8_t>> read(void) const noexcept;
-    ssize_t write(std::vector<std::uint8_t> const& data) const noexcept;
+
+    void wrapping_layers(std::shared_ptr<Layer> transport_layer,
+                         std::shared_ptr<Layer>,
+                         std::shared_ptr<Layer>) noexcept override;
+
+    bool read(std::uint8_t* buffer, std::size_t const size) const noexcept;
+    bool write(std::uint8_t const* const buffer,
+               std::size_t const size) const noexcept;
     inline operator bool() const noexcept { return *m_backend; };
 
 private:
     std::unique_ptr<yap3::backend::Backend> m_backend;
+    std::shared_ptr<Layer> m_transport_layer{nullptr};
 };
 
-}  // namespace datalink
 }  // namespace layers
 }  // namespace yap3
 

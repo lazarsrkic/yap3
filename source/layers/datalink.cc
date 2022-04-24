@@ -2,19 +2,25 @@
 
 namespace yap3 {
 namespace layers {
-namespace datalink {
 
 Datalink::Datalink(std::unique_ptr<yap3::backend::Backend> backend) noexcept
     : m_backend{std::move(backend)} {}
 
-std::pair<bool, std::vector<std::uint8_t>> Datalink::read(void) const noexcept {
-    return {false, {}};
+void Datalink::wrapping_layers(std::shared_ptr<Layer> transport_layer,
+                               std::shared_ptr<Layer>,
+                               std::shared_ptr<Layer>) noexcept {
+    m_transport_layer = transport_layer;
 }
 
-ssize_t Datalink::write(std::vector<std::uint8_t> const& data) const noexcept {
-    return m_backend->write(data.data(), data.size());
+bool Datalink::read(std::uint8_t* buffer,
+                    std::size_t const size) const noexcept {
+    return m_backend->read(buffer, size) != -1;
 }
 
-}  // namespace datalink
+bool Datalink::write(std::uint8_t const* const buffer,
+                     std::size_t const size) const noexcept {
+    return m_backend->write(buffer, size);
+}
+
 }  // namespace layers
 }  // namespace yap3
