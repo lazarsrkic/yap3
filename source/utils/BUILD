@@ -26,3 +26,9 @@ cc_library(
         "@spdlog"
     ],
 )
+
+cc_library(
+    name = "crc16",
+    srcs = ["crc16.cc"],
+    hdrs = ["crc16.h"],
+)
