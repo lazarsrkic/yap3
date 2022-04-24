@@ -1,8 +1,4 @@
 #include "backend/uart/backend_uart.h"
-#include "layers/application.h"
-#include "layers/datalink.h"
-#include "layers/presentation.h"
-#include "layers/transport.h"
 #include "protocol.h"
 
 #include <thread>

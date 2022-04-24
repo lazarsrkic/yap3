@@ -1,22 +1,20 @@
 #ifndef SOURCE_LAYERS_APPLICATION_H_
 #define SOURCE_LAYERS_APPLICATION_H_
 
-#include "layers/layer.h"
-
 #include <memory>
 
 namespace yap3 {
 namespace layers {
-namespace application {}  // namespace application
 
-class Application : public Layer {
+class Presentation;
+
+class Application {
 public:
-    void wrapping_layers(std::shared_ptr<Layer> presentation_layer,
-                         std::shared_ptr<Layer>,
-                         std::shared_ptr<Layer>) noexcept override;
+    void wrapping_layers(
+        std::shared_ptr<Presentation> presentation_layer) noexcept;
 
 private:
-    std::shared_ptr<Layer> m_presentation_layer{nullptr};
+    std::shared_ptr<Presentation> m_presentation_layer;
 };
 
 }  // namespace layers

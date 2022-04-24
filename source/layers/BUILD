@@ -1,71 +1,20 @@
 package(default_visibility = ["//visibility:public"])
 
 cc_library(
-    name = "layer",
-    srcs = ["layer.cc"],
-    hdrs = ["layer.h"],
-)
-
-cc_library(
-    name = "datalink",
+    name = "layers",
     srcs = [
         "datalink.cc",
+        "transport.cc",
+        "presentation.cc",
+        "application.cc"
     ],
     hdrs = [
-        "datalink.h"
-    ],
-    deps = [
-        ":layer",
-        "//source/backend",
-    ],
-)
-
-cc_library(
-    name = "application",
-    srcs = [
-        "application.cc",
-    ],
-    hdrs = [
+        "datalink.h",
+        "transport.h",
+        "presentation.h",
         "application.h"
     ],
     deps = [
-        ":layer",
-    ],
-)
-
-cc_library(
-    name = "presentation",
-    srcs = [
-        "presentation.cc",
-    ],
-    hdrs = [
-        "presentation.h"
-    ],
-    deps = [
-        ":layer",
-    ],
-)
-
-cc_library(
-    name = "transport",
-    srcs = [
-        "transport.cc",
-    ],
-    hdrs = [
-        "transport.h"
-    ],
-    deps = [
-        ":layer",
-    ],
-)
-
-cc_library(
-    name = "layers",
-    deps = [
-        ":layer",
-        ":application",
-        ":presentation",
-        ":transport",
-        ":datalink"
-    ],
+        "//source/backend",
+    ]
 )

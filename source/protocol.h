@@ -1,7 +1,10 @@
 #ifndef SOURCE_PROTOCOL_H_
 #define SOURCE_PROTOCOL_H_
 
-#include "layers/layer.h"
+#include "layers/application.h"
+#include "layers/datalink.h"
+#include "layers/presentation.h"
+#include "layers/transport.h"
 
 #include <chrono>
 #include <cstdint>
@@ -18,10 +21,10 @@ private:
     void transmit() const noexcept;
     void receive() const noexcept;
 
-    std::shared_ptr<layers::Layer> application_layer;
-    std::shared_ptr<layers::Layer> presentation_layer;
-    std::shared_ptr<layers::Layer> transport_layer;
-    std::shared_ptr<layers::Layer> datalink_layer;
+    std::shared_ptr<layers::Application> application_layer;
+    std::shared_ptr<layers::Presentation> presentation_layer;
+    std::shared_ptr<layers::Transport> transport_layer;
+    std::shared_ptr<layers::Datalink> datalink_layer;
     std::chrono::milliseconds cycle_time;
 };
 

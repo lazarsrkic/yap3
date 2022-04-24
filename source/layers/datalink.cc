@@ -1,4 +1,5 @@
 #include "layers/datalink.h"
+#include "layers/transport.h"
 
 namespace yap3 {
 namespace layers {
@@ -6,9 +7,8 @@ namespace layers {
 Datalink::Datalink(std::unique_ptr<yap3::backend::Backend> backend) noexcept
     : m_backend{std::move(backend)} {}
 
-void Datalink::wrapping_layers(std::shared_ptr<Layer> transport_layer,
-                               std::shared_ptr<Layer>,
-                               std::shared_ptr<Layer>) noexcept {
+void Datalink::wrapping_layers(
+    std::shared_ptr<yap3::layers::Transport> transport_layer) noexcept {
     m_transport_layer = transport_layer;
 }
 

@@ -1,11 +1,13 @@
+#include "layers/application.h"
 #include "layers/presentation.h"
+#include "layers/transport.h"
 
 namespace yap3 {
 namespace layers {
 
-void Presentation::wrapping_layers(std::shared_ptr<Layer> application_layer,
-                                   std::shared_ptr<Layer> transport_layer,
-                                   std::shared_ptr<Layer>) noexcept {
+void Presentation::wrapping_layers(
+    std::shared_ptr<Application> application_layer,
+    std::shared_ptr<Transport> transport_layer) noexcept {
     m_application_layer = application_layer;
     m_transport_layer = transport_layer;
 }
