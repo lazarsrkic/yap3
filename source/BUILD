@@ -17,13 +17,20 @@ cc_library(
     ],
 )
 
+cc_library(
+    name = "protocol",
+    srcs = ["protocol.cc"],
+    hdrs = ["protocol.h"],
+    deps = [
+        "//source/layers",
+        "@spdlog",
+    ],
+)
+
 cc_binary(
     name = "yap3",
-    srcs = ["main.cc"],
+    srcs = ["yap3.cc"],
     deps = [
-        "//source/backend",
-        "//source/utils:mqueue",
-        ":client_mqueue",
-        "@spdlog"
+        ":protocol",
     ],
 )
