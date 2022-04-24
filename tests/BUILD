@@ -7,3 +7,12 @@ cc_test(
     "@googletest//:gtest_main",
   ],
 )
+
+cc_test(
+  name = "timer",
+  srcs = ["timer_test.cc"],
+  deps = [
+    "//source/utils:timer",
+    "@googletest//:gtest_main",
+  ],
+)

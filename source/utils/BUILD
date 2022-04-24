@@ -17,3 +17,12 @@ cc_library(
         "@spdlog"
     ],
 )
+
+cc_library(
+    name = "timer",
+    srcs = ["timer.cc"],
+    hdrs = ["timer.h"],
+    deps = [
+        "@spdlog"
+    ],
+)
