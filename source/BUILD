@@ -18,6 +18,12 @@ cc_library(
 )
 
 cc_library(
+    name = "configuration",
+    srcs = ["configuration.cc"],
+    hdrs = ["configuration.h"],
+)
+
+cc_library(
     name = "protocol",
     srcs = ["protocol.cc"],
     hdrs = ["protocol.h"],
