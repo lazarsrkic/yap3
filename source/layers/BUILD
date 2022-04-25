@@ -16,5 +16,9 @@ cc_library(
     ],
     deps = [
         "//source/backend",
+        "//source/utils:ringbuffer",
+        "//source/utils:timer",
+        "//source/utils:crc16",
+        "//source:configuration"
     ]
 )
