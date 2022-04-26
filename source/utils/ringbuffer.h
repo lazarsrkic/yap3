@@ -17,7 +17,7 @@ namespace utils {
 template <std::size_t RINGBUFFER_SIZE, std::size_t MAX_MESSAGE_SIZE>
 class RingBuffer {
 public:
-    explicit RingBuffer() noexcept {
+    RingBuffer() noexcept {
         for (ringbuffer_item_type& item : buffer_) {
             std::memset(item.first.data(), 0x00, MAX_MESSAGE_SIZE);
             item.second = 0;
