@@ -85,8 +85,9 @@ bool Presentation::decrypt(std::uint8_t const* buffer,
                         (size - static_cast<size_t>(
                                     presentation::LAYER_IPC_PAYLOAD_OFFSET)));
                     m_buffer_size = size;
-                    // call function to send message to application layer
-                    return true;
+
+                    return m_application_layer->on_frame_receive(
+                        m_buffer.data(), m_buffer_size);
             }
         } else {
             spdlog::error("{} error:Incorrect buffer provided", __func__);
