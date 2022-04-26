@@ -21,6 +21,9 @@ cc_library(
     name = "configuration",
     srcs = ["configuration.cc"],
     hdrs = ["configuration.h"],
+    deps = [
+        "//source/utils:ringbuffer",
+    ],
 )
 
 cc_library(
