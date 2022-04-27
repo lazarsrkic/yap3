@@ -24,7 +24,7 @@ constexpr std::uint8_t LAYER_MESSAGE_PAYLOAD_OFFSET{
     LAYER_MESSAGE_SENDER_RECEIVER_ID_OFFSET + 1U};
 
 constexpr std::uint8_t LAYER_MAX_PAYLOAD_SIZE{
-    yap3::configuration::MAX_IPC_MSG_PAYLOAD_SIZE +
+    yap3::configuration::MAX_IPC_MESSAGE_PAYLOAD_SIZE +
     yap3::configuration::APP_CONTROL_SIZE};
 }  // namespace application
 
@@ -44,12 +44,17 @@ public:
                           std::size_t const size) noexcept;
 
 private:
+    typedef yap3::utils::RingBuffer<
+        yap3::configuration::MAX_RINGBUFFER_SIZE,
+        yap3::configuration::MAX_IPC_MESSAGE_PAYLOAD_SIZE>
+        rx_ringbuffer_type;
+
     std::shared_ptr<Presentation> m_presentation_layer;
     std::array<std::uint8_t, application::LAYER_MAX_PAYLOAD_SIZE> m_buffer;
     std::size_t m_buffer_size;
 
     std::mutex m_rx_ringbuffers_mutex;
-    std::array<yap3::configuration::rx_ringbuffer_type, 16> m_rx_ringbuffers{};
+    std::array<rx_ringbuffer_type, 16> m_rx_ringbuffers{};
 };
 
 }  // namespace layers

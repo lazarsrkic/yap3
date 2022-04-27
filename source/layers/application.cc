@@ -25,7 +25,7 @@ bool Application::on_ipc_message_receive(std::uint8_t const* buffer,
 
     if (m_presentation_layer) {
         if (buffer != nullptr &&
-            (size <= configuration::MAX_IPC_MSG_PAYLOAD_SIZE &&
+            (size <= configuration::MAX_IPC_MESSAGE_PAYLOAD_SIZE &&
              size >= application::LAYER_IPC_MESSAGE_PAYLOAD_OFFSET)) {
             m_buffer[application::LAYER_MESSAGE_APP_CONTROL_OFFSET] = 0x00;
             m_buffer[application::LAYER_MESSAGE_SENDER_RECEIVER_ID_OFFSET] =
