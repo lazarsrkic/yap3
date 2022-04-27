@@ -15,7 +15,7 @@ class Transport;
 namespace presentation {
 constexpr std::uint8_t LAYER_MAX_PAYLOAD_SIZE{
     yap3::configuration::APP_CONTROL_SIZE +
-    yap3::configuration::MAX_IPC_MSG_PAYLOAD_SIZE};
+    yap3::configuration::MAX_IPC_MESSAGE_PAYLOAD_SIZE};
 constexpr std::uint8_t LAYER_IPC_PAYLOAD_OFFSET{
     yap3::configuration::APP_CONTROL_SIZE};
 constexpr std::uint8_t LAYER_APP_CONTROL_OFFSET{0U};

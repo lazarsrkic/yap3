@@ -36,19 +36,11 @@ bool Presentation::encrypt(std::uint8_t const* buffer,
                     break;
                 case presentation::EncryptType::kNone:
                 default:
-                    m_buffer[presentation::LAYER_APP_CONTROL_OFFSET] =
-                        buffer[presentation::LAYER_APP_CONTROL_OFFSET];
-                    std::memcpy(
-                        m_buffer.data() +
-                            static_cast<size_t>(
-                                presentation::LAYER_IPC_PAYLOAD_OFFSET),
-                        buffer + static_cast<size_t>(
-                                     presentation::LAYER_IPC_PAYLOAD_OFFSET),
-                        (size - static_cast<size_t>(
-                                    presentation::LAYER_IPC_PAYLOAD_OFFSET)));
+                    std::memcpy(m_buffer.data(), buffer, size);
                     m_buffer_size = size;
-                    // call function to build frame for transport layer
-                    return true;
+
+                    return m_transport_layer->process_message(m_buffer.data(),
+                                                              m_buffer_size);
             }
         } else {
             spdlog::error("{} error:Incorrect buffer provided", __func__);
@@ -74,16 +66,7 @@ bool Presentation::decrypt(std::uint8_t const* buffer,
                     break;
                 case presentation::EncryptType::kNone:
                 default:
-                    m_buffer[presentation::LAYER_APP_CONTROL_OFFSET] =
-                        buffer[presentation::LAYER_APP_CONTROL_OFFSET];
-                    std::memcpy(
-                        m_buffer.data() +
-                            static_cast<size_t>(
-                                presentation::LAYER_IPC_PAYLOAD_OFFSET),
-                        buffer + static_cast<size_t>(
-                                     presentation::LAYER_IPC_PAYLOAD_OFFSET),
-                        (size - static_cast<size_t>(
-                                    presentation::LAYER_IPC_PAYLOAD_OFFSET)));
+                    std::memcpy(m_buffer.data(), buffer, size);
                     m_buffer_size = size;
 
                     return m_application_layer->on_frame_receive(
