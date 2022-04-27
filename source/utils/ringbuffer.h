@@ -142,7 +142,7 @@ public:
             stream << "[" << local_index << "]: " << log_item(item) << "\n";
         }
 
-        spdlog::info("\nBuffer content:\n{}", stream.str());
+        spdlog::debug("\nBuffer content:\n{}", stream.str());
     }
 
 private:
