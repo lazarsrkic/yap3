@@ -24,6 +24,8 @@ public:
         }
     }
 
+    std::size_t head() const noexcept { return head_; }
+
     bool put(std::uint8_t const* item, std::size_t size) noexcept {
         if (full_) {
             return false;
