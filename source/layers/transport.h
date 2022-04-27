@@ -23,6 +23,7 @@ constexpr std::uint8_t MAX_COMPLETE_MESSAGE_SIZE{
          yap3::configuration::MAX_IPC_MESSAGE_PAYLOAD_SIZE)};
 constexpr std::uint16_t READ_BUFFER_SIZE{MAX_COMPLETE_MESSAGE_SIZE * 5};
 
+// it has to start with something greather than 7, in order to avoid collision
 constexpr std::uint8_t START{0xA2U};
 constexpr std::uint8_t STOP{0xA3U};
 constexpr std::uint8_t ESCAPE{0x7DU};
