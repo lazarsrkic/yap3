@@ -29,8 +29,6 @@ public:
             return false;
         }
 
-        std::lock_guard<std::mutex> lock(mutex_);
-
         buffer_[head_].second = size;
         std::memcpy(buffer_[head_].first.data(), item, size);
         advance_pointers();
@@ -47,8 +45,6 @@ public:
         if (buf == nullptr || size == nullptr) {
             return false;
         }
-
-        std::lock_guard<std::mutex> lock(mutex_);
 
         std::size_t const index = (tail_ + offset) % RINGBUFFER_SIZE;
 
@@ -78,7 +74,6 @@ public:
         if (buf == nullptr || size == nullptr) {
             return false;
         }
-        std::lock_guard<std::mutex> lock(mutex_);
 
         auto& item = buffer_[tail_];
         std::memcpy(buf, item.first.data(), item.second);
@@ -103,7 +98,6 @@ public:
             return false;
         }
 
-        std::lock_guard<std::mutex> lock(mutex_);
         std::memset(buffer_[tail_].first.data(), 0x00, MAX_MESSAGE_SIZE);
         buffer_[tail_].second = 0;
 
@@ -117,20 +111,13 @@ public:
         return true;
     }
 
-    inline bool empty() const noexcept {
-        std::lock_guard<std::mutex> lock(mutex_);
-        return !full_ && head_ == tail_;
-    }
+    inline bool empty() const noexcept { return !full_ && head_ == tail_; }
 
-    inline bool full() const noexcept {
-        std::lock_guard<std::mutex> lock(mutex_);
-        return full_;
-    }
+    inline bool full() const noexcept { return full_; }
 
     inline size_t capacity() const noexcept { return RINGBUFFER_SIZE; }
 
     size_t size() const noexcept {
-        std::lock_guard<std::mutex> lock(mutex_);
         if (!full_) {
             if (head_ < tail_) {
                 return head_ + RINGBUFFER_SIZE - tail_;
