@@ -31,8 +31,8 @@ bool Presentation::encrypt(std::uint8_t const* buffer,
             switch (static_cast<presentation::EncryptType>(
                 buffer[presentation::LAYER_APP_CONTROL_OFFSET])) {
                 case presentation::EncryptType::kTypeA:
-                    break;
                 case presentation::EncryptType::kTypeB:
+                    spdlog::error("{}:Currently not implemented", __func__);
                     break;
                 case presentation::EncryptType::kNone:
                 default:
@@ -46,6 +46,7 @@ bool Presentation::encrypt(std::uint8_t const* buffer,
             spdlog::error("{} error:Incorrect buffer provided", __func__);
         }
     }
+
     return false;
 }
 
@@ -61,8 +62,8 @@ bool Presentation::decrypt(std::uint8_t const* buffer,
             switch (static_cast<presentation::EncryptType>(
                 buffer[presentation::LAYER_APP_CONTROL_OFFSET])) {
                 case presentation::EncryptType::kTypeA:
-                    break;
                 case presentation::EncryptType::kTypeB:
+                    spdlog::error("{}:Currently not implemented", __func__);
                     break;
                 case presentation::EncryptType::kNone:
                 default:
