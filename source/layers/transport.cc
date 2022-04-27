@@ -36,12 +36,12 @@ bool Transport::process_message(std::uint8_t const* buffer,
     m_buffer[transport::LAYER_CRC_OFFSET] = crc >> 8;
     m_buffer[transport::LAYER_CRC_OFFSET + 1] = crc & 0xFF;
 
+    std::lock_guard<std::mutex> lock{m_tx_ringbuffer_mutex};
     m_buffer[transport::LAYER_FRAME_CONTROL_OFFSET] =
-        0;  // TODO: Populate this one
+        static_cast<std::uint8_t>(transport::Message::kData) |
+        (static_cast<std::uint8_t>(m_tx_ringbuffer.head()) & 0xF);
     std::memcpy(m_buffer.data() + transport::LAYER_IPC_PAYLOAD_OFFSET, buffer,
                 size);
-
-    std::lock_guard<std::mutex> lock{m_tx_ringbuffer_mutex};
 
     if (!m_tx_ringbuffer.full()) {
         if (m_tx_ringbuffer.put(m_buffer.data(), m_buffer_size)) {

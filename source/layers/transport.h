@@ -23,8 +23,8 @@ constexpr std::uint8_t MAX_COMPLETE_MESSAGE_SIZE{
          yap3::configuration::MAX_IPC_MESSAGE_PAYLOAD_SIZE)};
 constexpr std::uint16_t READ_BUFFER_SIZE{MAX_COMPLETE_MESSAGE_SIZE * 5};
 
-constexpr std::uint8_t START{0x12U};
-constexpr std::uint8_t STOP{0x13U};
+constexpr std::uint8_t START{0xA2U};
+constexpr std::uint8_t STOP{0xA3U};
 constexpr std::uint8_t ESCAPE{0x7DU};
 
 constexpr std::uint8_t LAYER_START_FLAG_OFFSET{0U};
@@ -34,6 +34,9 @@ constexpr std::uint8_t LAYER_FRAME_CONTROL_OFFSET{
 constexpr std::uint8_t LAYER_IPC_PAYLOAD_OFFSET{
     yap3::configuration::FLAG_SIZE + yap3::configuration::CRC_SIZE +
     yap3::configuration::FRAME_CONTROL_SIZE};
+
+enum class Message : std::uint8_t { kData, kAck, kNack, kReset, kKeepAlive };
+
 }  // namespace transport
 
 class Transport {
