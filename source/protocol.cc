@@ -14,8 +14,7 @@ Protocol::Protocol() noexcept
       cycle_time{50} {
     application_layer->wrapping_layers(presentation_layer);
     presentation_layer->wrapping_layers(application_layer, transport_layer);
-    transport_layer->wrapping_layers(application_layer, presentation_layer,
-                                     datalink_layer);
+    transport_layer->wrapping_layers(presentation_layer, datalink_layer);
     datalink_layer->wrapping_layers(transport_layer);
 }
 
