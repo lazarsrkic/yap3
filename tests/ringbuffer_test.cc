@@ -15,20 +15,32 @@ TEST(RINGBUFFER, AfterAddingElementBufferIsNotEmptyNorFUll) {
     yap3::utils::RingBuffer<3, 4> ringbuffer{};
     {
         std::array<std::uint8_t, 4> msg1{0x00, 0x01, 0x02, 0x03};
-
-        spdlog::info("laalalla0");
         ASSERT_TRUE(ringbuffer.put(msg1.data(), msg1.size()));
     }
 
-    spdlog::info("laalalla1");
     ASSERT_FALSE(ringbuffer.empty());
-    spdlog::info("laalalla2");
     ASSERT_FALSE(ringbuffer.full());
-    spdlog::info("laalalla3");
     ASSERT_EQ(ringbuffer.size(), 1);
-    spdlog::info("laalalla4");
     ringbuffer.print();
-    spdlog::info("laalalla5");
+}
+
+TEST(RINGBUFFER, AfterResetQueueIsEmpty) {
+    yap3::utils::RingBuffer<3, 4> ringbuffer{};
+    {
+        std::array<std::uint8_t, 4> msg1{0x00, 0x01, 0x02, 0x03};
+        ASSERT_TRUE(ringbuffer.put(msg1.data(), msg1.size()));
+    }
+
+    ASSERT_FALSE(ringbuffer.empty());
+    ASSERT_FALSE(ringbuffer.full());
+    ASSERT_EQ(ringbuffer.size(), 1);
+    ringbuffer.print();
+
+    ringbuffer.reset();
+    ASSERT_TRUE(ringbuffer.empty());
+    ASSERT_FALSE(ringbuffer.full());
+    ASSERT_EQ(ringbuffer.size(), 0);
+    ringbuffer.print();
 }
 
 TEST(RINGBUFFER, SizeIncreasesWithAddingElementsUntilBufferIsFull) {

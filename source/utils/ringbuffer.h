@@ -24,6 +24,17 @@ public:
         }
     }
 
+    void reset() noexcept {
+        for (ringbuffer_item_type& item : buffer_) {
+            std::memset(item.first.data(), 0x00, MAX_MESSAGE_SIZE);
+            item.second = 0;
+        }
+
+        head_ = 0;
+        tail_ = 0;
+        full_ = false;
+    }
+
     std::size_t head() const noexcept { return head_; }
 
     bool put(std::uint8_t const* item, std::size_t size) noexcept {
