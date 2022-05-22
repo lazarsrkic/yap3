@@ -1,5 +1,5 @@
-#ifndef SOURCE_UTILS_TIMER_H_
-#define SOURCE_UTILS_TIMER_H_
+#ifndef YAP3_PROTOCOL_UTILS_TIMER_H_
+#define YAP3_PROTOCOL_UTILS_TIMER_H_
 
 #include <spdlog/spdlog.h>
 
@@ -23,4 +23,4 @@ private:
 }  // namespace utils
 }  // namespace yap3
 
-#endif  // SOURCE_UTILS_TIMER_H_
+#endif  // YAP3_PROTOCOL_UTILS_TIMER_H_

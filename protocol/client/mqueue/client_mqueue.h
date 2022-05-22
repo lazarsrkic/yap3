@@ -1,5 +1,5 @@
-#ifndef SOURCE_CLIENT_MQUEUE_CLIENT_MQUEUE_H_
-#define SOURCE_CLIENT_MQUEUE_CLIENT_MQUEUE_H_
+#ifndef YAP3_PROTOCOL_CLIENT_MQUEUE_CLIENT_MQUEUE_H_
+#define YAP3_PROTOCOL_CLIENT_MQUEUE_CLIENT_MQUEUE_H_
 #include "client/client.h"
 #include "utils/mqueue.h"
 
@@ -31,4 +31,4 @@ private:
 }  // namespace client
 }  // namespace yap3
 
-#endif  // SOURCE_CLIENT_MQUEUE_CLIENT_MQUEUE_H_
+#endif  // YAP3_PROTOCOL_CLIENT_MQUEUE_CLIENT_MQUEUE_H_

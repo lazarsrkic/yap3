@@ -1,5 +1,5 @@
-#ifndef SOURCE_PROTOCOL_H_
-#define SOURCE_PROTOCOL_H_
+#ifndef YAP3_PROTOCOL_PROTOCOL_H_
+#define YAP3_PROTOCOL_PROTOCOL_H_
 
 #include "layers/application.h"
 #include "layers/datalink.h"
@@ -30,4 +30,4 @@ private:
 
 }  // namespace yap3
 
-#endif  // SOURCE_PROTOCOL_H_
+#endif  // YAP3_PROTOCOL_PROTOCOL_H_

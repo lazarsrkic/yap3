@@ -12,7 +12,7 @@ cc_library(
     hdrs = ["client/mqueue/client_mqueue.h"],
     deps = [
         ":client",
-        "//source/utils:mqueue",
+        "//protocol/utils:mqueue",
         "@spdlog"
     ],
 )
@@ -22,7 +22,7 @@ cc_library(
     srcs = ["configuration.cc"],
     hdrs = ["configuration.h"],
     deps = [
-        "//source/utils:ringbuffer",
+        "//protocol/utils:ringbuffer",
     ],
 )
 
@@ -31,7 +31,7 @@ cc_library(
     srcs = ["protocol.cc"],
     hdrs = ["protocol.h"],
     deps = [
-        "//source/layers",
+        "//protocol/layers",
         "@spdlog",
     ],
 )

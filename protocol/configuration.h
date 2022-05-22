@@ -1,5 +1,5 @@
-#ifndef SOURCE_CONFIGURATION_H_
-#define SOURCE_CONFIGURATION_H_
+#ifndef YAP3_PROTOCOL_CONFIGURATION_H_
+#define YAP3_PROTOCOL_CONFIGURATION_H_
 
 #include "utils/ringbuffer.h"
 
@@ -20,4 +20,4 @@ constexpr std::uint8_t MAX_RINGBUFFER_SIZE{16U};
 }  // namespace configuration
 }  // namespace yap3
 
-#endif  // SOURCE_CONFIGURATION_H_
+#endif  // YAP3_PROTOCOL_CONFIGURATION_H_

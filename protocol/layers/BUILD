@@ -15,11 +15,11 @@ cc_library(
         "application.h"
     ],
     deps = [
-        "//source/backend",
-        "//source/utils:ringbuffer",
-        "//source/utils:timer",
-        "//source/utils:crc16",
-        "//source/utils:slidingwindow",
-        "//source:configuration"
+        "//protocol/backend",
+        "//protocol/utils:ringbuffer",
+        "//protocol/utils:timer",
+        "//protocol/utils:crc16",
+        "//protocol/utils:slidingwindow",
+        "//protocol:configuration"
     ]
 )

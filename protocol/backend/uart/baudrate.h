@@ -1,5 +1,5 @@
-#ifndef SOURCE_BACKEND_UART_BAUDRATE_H_
-#define SOURCE_BACKEND_UART_BAUDRATE_H_
+#ifndef YAP3_PROTOCOL_BACKEND_UART_BAUDRATE_H_
+#define YAP3_PROTOCOL_BACKEND_UART_BAUDRATE_H_
 
 #include <termios.h>
 
@@ -23,4 +23,4 @@ private:
 }  // namespace backend
 }  // namespace yap3
 
-#endif  // SOURCE_BACKEND_UART_BAUDRATE_H_
+#endif  // YAP3_PROTOCOL_BACKEND_UART_BAUDRATE_H_

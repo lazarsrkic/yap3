@@ -1,5 +1,5 @@
-#ifndef SOURCE_LAYERS_DATALINK_H_
-#define SOURCE_LAYERS_DATALINK_H_
+#ifndef YAP3_PROTOCOL_LAYERS_DATALINK_H_
+#define YAP3_PROTOCOL_LAYERS_DATALINK_H_
 
 #include "backend/backend.h"
 
@@ -30,4 +30,4 @@ private:
 }  // namespace layers
 }  // namespace yap3
 
-#endif  // SOURCE_LAYERS_DATALINK_H_
+#endif  // YAP3_PROTOCOL_LAYERS_DATALINK_H_

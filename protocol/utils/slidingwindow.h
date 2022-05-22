@@ -1,5 +1,5 @@
-#ifndef SOURCE_UTILS_SLIDINGWINDOW_H_
-#define SOURCE_UTILS_SLIDINGWINDOW_H_
+#ifndef YAP3_PROTOCOL_UTILS_SLIDINGWINDOW_H_
+#define YAP3_PROTOCOL_UTILS_SLIDINGWINDOW_H_
 
 #include <cstdint>
 
@@ -20,4 +20,4 @@ struct SlidingWindow {
 }  // namespace utils
 }  // namespace yap3
 
-#endif  // SOURCE_UTILS_SLIDINGWINDOW_H_
+#endif  // YAP3_PROTOCOL_UTILS_SLIDINGWINDOW_H_

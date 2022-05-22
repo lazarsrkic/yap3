@@ -35,4 +35,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Build and run unit tests
-        run: bazel test //tests/... --test_output=streamed --cache_test_results=no --runs_per_test=100
+        run: bazel test //protocol/tests/... --test_output=streamed --cache_test_results=no --runs_per_test=100

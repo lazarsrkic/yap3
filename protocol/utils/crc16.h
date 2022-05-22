@@ -1,5 +1,5 @@
-#ifndef SOURCE_UTILS_CRC16_H_
-#define SOURCE_UTILS_CRC16_H_
+#ifndef YAP3_PROTOCOL_UTILS_CRC16_H_
+#define YAP3_PROTOCOL_UTILS_CRC16_H_
 
 #include <cstdint>
 
@@ -15,4 +15,4 @@ public:
 }  // namespace utils
 }  // namespace yap3
 
-#endif  // SOURCE_UTILS_CRC16_H_
+#endif  // YAP3_PROTOCOL_UTILS_CRC16_H_

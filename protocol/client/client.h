@@ -1,5 +1,5 @@
-#ifndef SOURCE_CLIENT_CLIENT_H_
-#define SOURCE_CLIENT_CLIENT_H_
+#ifndef YAP3_PROTOCOL_CLIENT_CLIENT_H_
+#define YAP3_PROTOCOL_CLIENT_CLIENT_H_
 
 #include <chrono>
 #include <cstdint>
@@ -33,4 +33,4 @@ protected:
 }  // namespace client
 }  // namespace yap3
 
-#endif  // SOURCE_CLIENT_CLIENT_H_
+#endif  // YAP3_PROTOCOL_CLIENT_CLIENT_H_

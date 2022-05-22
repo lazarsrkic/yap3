@@ -1,5 +1,5 @@
-#ifndef SOURCE_BACKEND_BACKEND_H_
-#define SOURCE_BACKEND_BACKEND_H_
+#ifndef YAP3_PROTOCOL_BACKEND_BACKEND_H_
+#define YAP3_PROTOCOL_BACKEND_BACKEND_H_
 
 #include <sys/types.h>
 
@@ -21,4 +21,4 @@ public:
 }  // namespace backend
 }  // namespace yap3
 
-#endif  // SOURCE_BACKEND_BACKEND_H_
+#endif  // YAP3_PROTOCOL_BACKEND_BACKEND_H_

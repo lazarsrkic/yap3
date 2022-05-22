@@ -1,5 +1,5 @@
-#ifndef SOURCE_LAYERS_PRESENTATION_H_
-#define SOURCE_LAYERS_PRESENTATION_H_
+#ifndef YAP3_PROTOCOL_LAYERS_PRESENTATION_H_
+#define YAP3_PROTOCOL_LAYERS_PRESENTATION_H_
 
 #include "configuration.h"
 
@@ -43,4 +43,4 @@ private:
 }  // namespace layers
 }  // namespace yap3
 
-#endif  // SOURCE_LAYERS_PRESENTATION_H_
+#endif  // YAP3_PROTOCOL_LAYERS_PRESENTATION_H_

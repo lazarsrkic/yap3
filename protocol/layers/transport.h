@@ -1,5 +1,5 @@
-#ifndef SOURCE_LAYERS_TRANSPORT_H_
-#define SOURCE_LAYERS_TRANSPORT_H_
+#ifndef YAP3_PROTOCOL_LAYERS_TRANSPORT_H_
+#define YAP3_PROTOCOL_LAYERS_TRANSPORT_H_
 
 #include "configuration.h"
 #include "utils/ringbuffer.h"
@@ -97,4 +97,4 @@ private:
 }  // namespace layers
 }  // namespace yap3
 
-#endif  // SOURCE_LAYERS_TRANSPORT_H_
+#endif  // YAP3_PROTOCOL_LAYERS_TRANSPORT_H_

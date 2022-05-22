@@ -1,5 +1,5 @@
-#ifndef SOURCE_BACKEND_UART_BACKEND_UART_H_
-#define SOURCE_BACKEND_UART_BACKEND_UART_H_
+#ifndef YAP3_PROTOCOL_BACKEND_UART_BACKEND_UART_H_
+#define YAP3_PROTOCOL_BACKEND_UART_BACKEND_UART_H_
 
 #include "backend/backend.h"
 #include "backend/uart/serial.h"
@@ -29,4 +29,4 @@ private:
 }  // namespace backend
 }  // namespace yap3
 
-#endif  // SOURCE_BACKEND_UART_BACKEND_UART_H_
+#endif  // YAP3_PROTOCOL_BACKEND_UART_BACKEND_UART_H_
