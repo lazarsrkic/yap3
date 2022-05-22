@@ -32,3 +32,9 @@ cc_library(
     srcs = ["crc16.cc"],
     hdrs = ["crc16.h"],
 )
+
+cc_library(
+    name = "slidingwindow",
+    srcs = ["slidingwindow.cc"],
+    hdrs = ["slidingwindow.h"],
+)
