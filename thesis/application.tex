@@ -1,0 +1,121 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{hyperref}
+\setlength{\textheight}{25cm}
+\setlength{\textwidth}{18cm}
+\setlength{\topmargin}{-25mm}
+\setlength{\hoffset}{-25mm}
+\def\zn{,\kern-0.09em,}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{flushleft}
+Математички факултет\\
+Универзитета у Београду
+\end{flushleft}
+
+\bigskip
+
+\begin{center}
+\textbf{МОЛБА\\
+ЗА ОДОБРАВАЊЕ ТЕМЕ МАСТЕР РАДА
+}\end{center}
+
+\bigskip
+
+\begin{flushleft}
+Молим да ми се одобри израда мастер рада под насловом:
+\end{flushleft}
+
+\begin{minipage}{16.5cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% U donji red upisati naziv master rada umesto teksta: >>Назив мастер рада<<  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{\textit{\zn UART као медијум за комуникацију између уређаја са уградним рачунаром'}}
+\end{minipage}\\
+\rule[4mm]{17.5cm}{.05mm}
+\begin{flushleft}
+\framebox{
+\begin{minipage}[t][10cm]{17cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 	-- unutrasnjost pravougaonika --    	  								  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Значај теме и области:}
+
+% 	Umesto donjeg teksta opisati značaj teme i oblasti	%
+Све већем броју уређаја са уградним рачунаром потребан је медијум за комуникацију, како би добавили податке које поседују други уградни рачунари или мреже уградних рачунара. Једна од најпопуларнијих медијума за комуникацију је Етернет, али протоколи засновани на Етернету захтевају велику брзину преноса података и брзину процесора, те се у неким ситуацијама долази до лимита овог вида комуникације. Стога поред Етернета, често су у употреби други, мање интензивни, медијуми за комуникацију као што су UART [1], SPI или I2C. UART [1] припада слоју везе података референтног ОСИ модела [2], те је потребно имплементирати протокол, односно слојеве вишег нивоа који би се бавили концептима ре-трансмисије, детекције и опорављања од грешака, како би овај медијум омогућио поуздану комуникацију.
+\\
+\textbf{Специфични циљ рада:}
+
+% 	Umesto donjeg teksta opisati specifični cilj master rada %
+Циљ рада је осмишљавање и имплементација комуникационог протокола који користи UART [1] као медијум за комуникацију, те додатно приказивање како се предложено решење уклапа у референтни ОСИ модел [2]. Осмишљавање, а затим и имплементација, неопходно је да обухвати спцифичности овог вида комуникацијe на сваком слоју протокола, те омогућити поуздану комуникацију између два или више уређаја са уградним рачунаром уз максималну пропустност. Имплементација протокола биће остварена коришћењем програмских језика C и C++.
+\\
+
+\textbf{Литература:}
+\\
+1) A. K. Gupta, A. Raman, N. Kumar and R. Ranjan, "Design and Implementation of High-Speed Universal Asynchronous Receiver and Transmitter (UART)," 2020 7th International Conference on Signal Processing and Integrated Networks (SPIN), 2020, pp. 295-300, doi: 10.1109/SPIN48934.2020.9070856.\\
+2) J. D. Day and H. Zimmermann, "The OSI reference model," in Proceedings of the IEEE, vol. 71, no. 12, pp. 1334-1340, Dec. 1983, doi: 10.1109/PROC.1983.12775.
+\\
+
+\end{minipage}
+}
+\end{flushleft}
+\vspace{1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% u donji red uneti:       ime i prezime, broj indeksa i modul studenta       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makebox[10cm][c]{\textbf{Срђан Лазаревић, 1096/2018, Информатика}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% u donji red uneti:                   ime i prezime mentora				  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Сагласан ментор \makebox[5cm][c]{\textbf{др Милена Вујошевић Јаничић}} \\
+\rule[4mm]{10cm}{.05mm} \hfill \raisebox{4mm}{\makebox[5cm][l]{.\dotfill.}} \\
+\raisebox{1cm}%
+[9mm][0mm]{\makebox[10cm][c]{\textit{(име и презиме студента, бр. индекса, модул)}}} \\
+\makebox[10cm]{ }\\
+\vspace{-1cm}\\
+\rule[2cm]{6.5cm}{.05mm} \hfill \rule[2cm]{6.5cm}{.05mm}\\
+\vspace{-2.4cm}\\
+\raisebox{2cm}{\makebox[6.5cm][c]{\textit{(својеручни потпис студента)}}}
+\hfill \raisebox{2cm}{\makebox[6.5cm][c]{\textit{(својеручни потпис ментора)}}}\\
+\vspace{-2cm}\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% u donji red uneti datum podnosenja molbe									  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makebox[5.5cm][c]{\textbf{<датум>}}\makebox[5.5cm]{}  Чланови комисије\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% POPUNJAVA MENTOR (rucno ili na sledeci nacin):							  %
+% u donji red umesto .\dotfill. upisati podatke o 1. clanu komisije		      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\rule[4mm]{5.5cm}{.05mm}\makebox[5.5cm]{ } 1. \makebox[6cm][l]{.\dotfill.}\\
+\vspace{-8mm}\\
+\raisebox{4mm}%
+[7mm][0mm]{\makebox[5.5cm][c]{\textit{(датум подношења молбе)}}}\makebox[5.5cm]{ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% POPUNJAVA MENTOR (rucno ili na sledeci nacin): 							  %
+% u donji red umesto .\dotfill. upisati podatke o 2. clanu komisije           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+2. \makebox[6cm][l]{.\dotfill.}\\
+
+\vspace{1cm}
+
+
+\begin{flushleft}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% u donji red upisati              katedru									  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Катедра \makebox[9.5cm][l]{\textbf{за рачунарство и информатику}} је сагласна са предложеном темом.
+\vspace{-3mm}
+\hspace*{13mm} \rule[2.3cm]{9.5cm}{.05mm}\\
+\vspace{-1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% POPUNJAVA SEF KATEDRE                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makebox[6.5cm][c]{} \hfill \makebox[6.5cm][c]{}\\
+\rule[4mm]{6.5cm}{.05mm} \hfill \rule[4mm]{6.5cm}{.05mm}\\
+\vspace{-5mm}
+\makebox[6.5cm][c]{\textit{(шеф катедре)}} \hfill \makebox[6.5cm][c]{\textit{(датум одобравања молбе)}}
+\end{flushleft}
+\end{document}
