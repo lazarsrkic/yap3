@@ -12,9 +12,9 @@ void Datalink::wrapping_layers(
     m_transport_layer = transport_layer;
 }
 
-bool Datalink::read(std::uint8_t* buffer,
-                    std::size_t const size) const noexcept {
-    return m_backend->read(buffer, size) != -1;
+ssize_t Datalink::read(std::uint8_t* buffer,
+                       std::size_t const size) const noexcept {
+    return m_backend->read(buffer, size);
 }
 
 bool Datalink::write(std::uint8_t const* const buffer,

@@ -19,6 +19,7 @@ cc_library(
         "//source/utils:ringbuffer",
         "//source/utils:timer",
         "//source/utils:crc16",
+        "//source/utils:slidingwindow",
         "//source:configuration"
     ]
 )

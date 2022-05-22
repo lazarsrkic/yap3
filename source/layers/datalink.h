@@ -17,7 +17,7 @@ public:
 
     void wrapping_layers(std::shared_ptr<Transport> transport_layer) noexcept;
 
-    bool read(std::uint8_t* buffer, std::size_t const size) const noexcept;
+    ssize_t read(std::uint8_t* buffer, std::size_t const size) const noexcept;
     bool write(std::uint8_t const* const buffer,
                std::size_t const size) const noexcept;
     inline operator bool() const noexcept { return *m_backend; };

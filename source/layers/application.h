@@ -40,8 +40,8 @@ public:
     bool on_ipc_message_send(std::uint8_t const receiver_id,
                              std::uint8_t* buffer, std::size_t* size) noexcept;
 
-    bool on_frame_receive(std::uint8_t const* buffer,
-                          std::size_t const size) noexcept;
+    bool on_message_receive(std::uint8_t const* buffer,
+                            std::size_t const size) noexcept;
 
 private:
     typedef yap3::utils::RingBuffer<

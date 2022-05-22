@@ -39,8 +39,8 @@ bool Presentation::encrypt(std::uint8_t const* buffer,
                     std::memcpy(m_buffer.data(), buffer, size);
                     m_buffer_size = size;
 
-                    return m_transport_layer->process_message(m_buffer.data(),
-                                                              m_buffer_size);
+                    return m_transport_layer->process_ipc_message(
+                        m_buffer.data(), m_buffer_size);
             }
         } else {
             spdlog::error("{} error:Incorrect buffer provided", __func__);
@@ -70,7 +70,7 @@ bool Presentation::decrypt(std::uint8_t const* buffer,
                     std::memcpy(m_buffer.data(), buffer, size);
                     m_buffer_size = size;
 
-                    return m_application_layer->on_frame_receive(
+                    return m_application_layer->on_message_receive(
                         m_buffer.data(), m_buffer_size);
             }
         } else {

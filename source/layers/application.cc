@@ -63,8 +63,6 @@ bool Application::on_ipc_message_send(std::uint8_t const receiver_id,
         return false;
     }
 
-    spdlog::info("New message for receiver with id: {}!", receiver_id);
-
     std::lock_guard<std::mutex> lock{m_rx_ringbuffers_mutex};
 
     if (!m_rx_ringbuffers[receiver_id].empty()) {
@@ -86,8 +84,8 @@ bool Application::on_ipc_message_send(std::uint8_t const receiver_id,
     return false;
 }
 
-bool Application::on_frame_receive(std::uint8_t const* buffer,
-                                   std::size_t const size) noexcept {
+bool Application::on_message_receive(std::uint8_t const* buffer,
+                                     std::size_t const size) noexcept {
     if (buffer == nullptr ||
         size < application::LAYER_MESSAGE_SENDER_RECEIVER_ID_OFFSET) {
         return false;

@@ -10,7 +10,7 @@ Protocol::Protocol() noexcept
       presentation_layer(std::make_shared<layers::Presentation>()),
       transport_layer(std::make_shared<layers::Transport>()),
       datalink_layer(std::make_shared<layers::Datalink>(
-          std::make_unique<backend::BackendUart>("/dev/pts/5", 115200))),
+          std::make_unique<backend::BackendUart>("/dev/pts/4", 115200))),
       cycle_time{50} {
     application_layer->wrapping_layers(presentation_layer);
     presentation_layer->wrapping_layers(application_layer, transport_layer);
@@ -18,11 +18,23 @@ Protocol::Protocol() noexcept
     datalink_layer->wrapping_layers(transport_layer);
 }
 
-void Protocol::transmit() const noexcept {}
+void Protocol::transmit() const noexcept {
+    std::array<std::uint8_t, 5> data{0x01, 0x02, 0x03, 0x04, 0x05};
 
-void Protocol::receive() const noexcept {}
+    application_layer->on_ipc_message_receive(data.data(), data.size());
+    transport_layer->transmit();
+}
+
+void Protocol::receive() const noexcept {
+    transport_layer->receive();
+    std::array<std::uint8_t, 10> data{};
+    std::size_t size = 0;
+    application_layer->on_ipc_message_send(0x1, data.data(), &size);
+}
 
 std::int32_t Protocol::run() const noexcept {
+    transport_layer->protocol_reset();
+
     while (1) {
         transmit();
         receive();
