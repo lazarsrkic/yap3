@@ -38,10 +38,12 @@ ssize_t BackendUart::read(std::uint8_t* buf,
                           std::size_t const len) const noexcept {
     auto const read_len = ::read(m_serial, buf, len);
     if (read_len == -1) {
-        spdlog::error("Failed to read data from serial stream! Error: ",
+        spdlog::error("Failed to read data from serial stream! Error: {}",
                       std::strerror(errno));
     } else {
-        spdlog::debug("Backend read: {}", log_buffer(buf, read_len));
+        if (read_len != 0) {
+            spdlog::debug("Backend read: {}", log_buffer(buf, read_len));
+        }
     }
 
     return read_len;
@@ -51,7 +53,7 @@ ssize_t BackendUart::write(std::uint8_t const* buf,
                            std::size_t const len) const noexcept {
     auto const write_len = ::write(m_serial, buf, len);
     if (write_len == -1) {
-        spdlog::error("Failed to write data to serial stream! Error: ",
+        spdlog::error("Failed to write data to serial stream! Error: {}",
                       std::strerror(errno));
     } else {
         spdlog::debug("Backend write: {}", log_buffer(buf, write_len));
