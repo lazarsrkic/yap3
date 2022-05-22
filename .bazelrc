@@ -1,4 +1,8 @@
 build --cxxopt='-std=c++17'
 build --cxxopt='-Iprotocol'
 build --cxxopt='-O3'
+build --cxxopt='-Wall'
+build --cxxopt='-Wextra'
+build --cxxopt='-Werror'
+build --cxxopt='-Wpedantic'
 build --linkopt='-lrt'

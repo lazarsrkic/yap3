@@ -10,22 +10,20 @@ namespace client {
 
 class Client {
 protected:
-    virtual bool timed_send(
-        std::vector<std::uint8_t> const& data,
-        std::chrono::milliseconds const& timeout) const noexcept {
+    virtual bool timed_send(std::vector<std::uint8_t> const&,
+                            std::chrono::milliseconds const&) const noexcept {
         return false;
     };
-    virtual bool send(std::vector<std::uint8_t> const& data) const noexcept {
+    virtual bool send(std::vector<std::uint8_t> const&) const noexcept {
         return false;
     };
     virtual bool timed_receive(
-        std::vector<std::uint8_t>& data,
-        std::chrono::milliseconds const& timeout) const noexcept {
+        std::vector<std::uint8_t>&,
+        std::chrono::milliseconds const&) const noexcept {
         return false;
     };
-    virtual bool receive(
-        std::vector<std::uint8_t>& data,
-        std::chrono::milliseconds const& timeout) const noexcept {
+    virtual bool receive(std::vector<std::uint8_t>&,
+                         std::chrono::milliseconds const&) const noexcept {
         return false;
     };
 };

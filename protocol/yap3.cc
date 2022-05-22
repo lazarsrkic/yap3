@@ -2,7 +2,7 @@
 
 #include <spdlog/spdlog.h>
 
-int main(int argc, char const *argv[]) {
+int main(int, char const *[]) {
     spdlog::set_level(spdlog::level::debug);
     spdlog::info("Welcome to YAP3");
 
